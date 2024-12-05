@@ -15,7 +15,7 @@ jobs:
           python -m pip install --upgrade pip
           pip install pyyaml
       - name: Run Saccos Project
-        run: SACCOS-Project/saccos-backend/python manage.py runserver
+        run: "SACCOS-Project/saccos-backend/python manage.py runserver"
       - name: Push Repo
         run: |
           git config user.name ArnoldMosha60
