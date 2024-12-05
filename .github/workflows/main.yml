@@ -1,25 +1,32 @@
 name: Saccos Project
 on: [push]
+
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Repo
         uses: actions/checkout@v1
+
       - name: Setup Python
         uses: actions/setup-python@v4
         with:
           python-version: '3.10'
+
       - name: Install Dependencies
         run: |
           python -m pip install --upgrade pip
-          pip install pyyaml
+          pip install -r SACCOS-Project/saccos-backend/requirements.txt
+
       - name: Run Saccos Project
-        run: "SACCOS-Project/saccos-backend/python manage.py runserver"
+        working-directory: SACCOS-Project/saccos-backend
+        run: |
+          python manage.py runserver 0.0.0.0:8000
+
       - name: Push Repo
         run: |
-          git config user.name ArnoldMosha60
-          git config user.email arnoldmosha60@gmail.com
+          git config user.name "ArnoldMosha60"
+          git config user.email "arnoldmosha60@gmail.com"
           git add .
           git commit -m "Push Repo"
           git push
