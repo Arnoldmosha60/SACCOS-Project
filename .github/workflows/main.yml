@@ -16,7 +16,6 @@ jobs:
       - name: Install Dependencies
         run: |
           python -m pip install --upgrade pip
-          pip install -r SACCOS-Project/saccos-backend/requirements.txt
 
       - name: Run Saccos Project
         working-directory: SACCOS-Project/saccos-backend
